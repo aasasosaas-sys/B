@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全敵キャラ完全図鑑 (Stage 1-100) - ワードダンジョンRPG</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=M+PLUS+Rounded+1c:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Inter', sans-serif;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    .text-glow-amber {
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+    .text-glow-rose {
+      text-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- Header -->
+  <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">
+          📖
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-black tracking-wide bg-gradient-to-r from-amber-300 via-rose-300 to-purple-300 bg-clip-text text-transparent">
+            全敵キャラ完全解析図鑑
+          </h1>
+          <p class="text-[10px] text-slate-400">Stage 1 ～ 100 ダンジョンモンスター戦闘力データベース</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-300 rounded-xl text-xs font-bold">
+          全 100 体収録
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full space-y-6">
+
+    <!-- Analysis & Overview Cards -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      
+      <!-- Card 1: Time Trend -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 space-y-3 shadow-xl">
+        <div class="flex items-center space-x-2 text-amber-400">
+          <i class="fa-solid fa-clock text-lg"></i>
+          <h3 class="font-bold text-sm text-slate-100">制限時間（Time）の傾向と仕様</h3>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          バトル制限時間はダンジョンの種類や階層に応じて変化します：
+        </p>
+        <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc list-inside">
+          <li><b class="text-slate-200">基本タイム (45秒):</b> 通常階層の標準的な制限時間。</li>
+          <li><b class="text-amber-300">ボスタイム (50〜60秒):</b> 各ワールドの9階・10階等の大ボス戦で+5〜15秒拡張。</li>
+          <li><b class="text-rose-400">高速バトル (30〜35秒):</b> 地獄(31~)、無(41~)、戦国(71~)、機械(81~)、表の表(91~)の難関エリアで短縮。</li>
+          <li><b class="text-purple-300">特例緩和 (350秒):</b> Stage 47「全知全能の虚無」のみ耐久特化の350秒超ロングタイム設定。</li>
+        </ul>
+      </div>
+
+      <!-- Card 2: Power (DPS) Concept -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 space-y-3 shadow-xl">
+        <div class="flex items-center space-x-2 text-rose-400">
+          <i class="fa-solid fa-swords text-lg"></i>
+          <h3 class="font-bold text-sm text-slate-100">戦闘力 (要求DPS) の定義</h3>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          敵の耐久力と制限時間から算出される<b>「1秒あたりに叩き込むべき必要火力 (DPS)」</b>です：
+        </p>
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center">
+          <span class="text-xs font-mono font-bold text-rose-400">戦闘力 (DPS) ＝ 最大HP ÷ 制限時間(秒)</span>
+        </div>
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          Stage 1 の要求戦闘力は <b>6.67 DPS</b> ですが、Stage 100 では <b>1.65×10²⁴ (1.65𥝱) DPS</b> という超インフレ指数に到達します。
+        </p>
+      </div>
+
+      <!-- Card 3: Boss Jump Summary -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 space-y-3 shadow-xl">
+        <div class="flex items-center space-x-2 text-purple-400">
+          <i class="fa-solid fa-crown text-lg"></i>
+          <h3 class="font-bold text-sm text-slate-100">エリア・ボスごとの戦闘力倍率</h3>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          各区切り（10階ごと）の大ボス突破時に要求戦闘力が跳ね上がります：
+        </p>
+        <div class="text-[11px] text-slate-400 space-y-1">
+          <div class="flex justify-between"><span>Stage 10 魔王:</span> <b class="text-amber-300 font-mono">466.7 DPS (Stage 1比 70倍)</b></div>
+          <div class="flex justify-between"><span>Stage 50 オメガ:</span> <b class="text-purple-300 font-mono">4285万 DPS (Stage 1比 642万倍)</b></div>
+          <div class="flex justify-between"><span>Stage 100 アルティメット:</span> <b class="text-fuchsia-300 font-mono">1.65𥝱 DPS (究極領域)</b></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Boss Summary Table Modal Trigger / Collapsible Section -->
+    <section class="bg-slate-900 border border-amber-500/30 rounded-3xl p-5 space-y-4 shadow-xl">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-800 pb-3">
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl">🏆</span>
+          <div>
+            <h2 class="font-black text-base text-amber-300">各エリア大ボス（10階刻み）戦闘力・上昇幅サマリー</h2>
+            <p class="text-xs text-slate-400">各エリアの節目に君臨するボスたちの耐久・要求火力一覧</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-950 text-slate-400 font-bold border-b border-slate-800">
+            <tr>
+              <th class="p-2.5">Stage</th>
+              <th class="p-2.5">ボス名</th>
+              <th class="p-2.5">ワールド</th>
+              <th class="p-2.5">HP</th>
+              <th class="p-2.5">時間</th>
+              <th class="p-2.5">戦闘力 (DPS)</th>
+              <th class="p-2.5">前ボス比</th>
+              <th class="p-2.5">Stage 1比</th>
+            </tr>
+          </thead>
+          <tbody id="boss-summary-tbody" class="divide-y divide-slate-800 font-mono">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Controls & Filters -->
+    <section class="bg-slate-900 border border-slate-800 rounded-3xl p-5 space-y-4 shadow-xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Search Input -->
+        <div class="w-full md:w-72 relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+          <input type="text" id="search-input" oninput="renderMonsterList()" placeholder="モンスター名やStageで検索..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl pl-9 pr-4 py-2.5 text-xs text-slate-100 focus:outline-none focus:border-amber-500 transition">
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 text-xs font-bold scrollbar-none">
+          <button onclick="setWorldFilter('all')" id="filter-btn-all" class="px-3 py-2 rounded-xl bg-amber-500 text-slate-950 transition whitespace-nowrap">全 100 体</button>
+          <button onclick="setWorldFilter('main')" id="filter-btn-main" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">🏰 表 (1-10)</button>
+          <button onclick="setWorldFilter('extra')" id="filter-btn-extra" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">☠️ 裏 (11-20)</button>
+          <button onclick="setWorldFilter('extra2')" id="filter-btn-extra2" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">🌀 裏裏 (21-30)</button>
+          <button onclick="setWorldFilter('hell')" id="filter-btn-hell" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">🔥 地獄 (31-40)</button>
+          <button onclick="setWorldFilter('void')" id="filter-btn-void" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">🌌 無 (41-50)</button>
+          <button onclick="setWorldFilter('world_begin')" id="filter-btn-world_begin" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">🌱 はじまり (51-60)</button>
+          <button onclick="setWorldFilter('world_ancient')" id="filter-btn-world_ancient" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">🏺 古代 (61-70)</button>
+          <button onclick="setWorldFilter('world_sengoku')" id="filter-btn-world_sengoku" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">🏯 戦国 (71-80)</button>
+          <button onclick="setWorldFilter('world_machine')" id="filter-btn-world_machine" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">⚙️ 機械 (81-90)</button>
+          <button onclick="setWorldFilter('world_front_front')" id="filter-btn-world_front_front" class="px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">✨ 表の表 (91-100)</button>
+        </div>
+
+        <!-- Display Mode Toggle -->
+        <div class="flex items-center space-x-1 bg-slate-950 border border-slate-800 p-1 rounded-2xl shrink-0">
+          <button onclick="setViewMode('table')" id="view-btn-table" class="px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs transition">
+            <i class="fa-solid fa-list mr-1"></i> 表リスト
+          </button>
+          <button onclick="setViewMode('cards')" id="view-btn-cards" class="px-3 py-1.5 rounded-xl bg-transparent text-slate-400 hover:text-white font-bold text-xs transition">
+            <i class="fa-solid fa-border-all mr-1"></i> カード
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Main Table View -->
+    <section id="view-container-table" class="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-950 text-slate-400 font-bold border-b border-slate-800">
+            <tr>
+              <th class="p-3 w-16">Stage</th>
+              <th class="p-3">モンスター</th>
+              <th class="p-3">ワールド</th>
+              <th class="p-3">体力 (HP)</th>
+              <th class="p-3 text-rose-400">HP上昇幅 (差分 / 倍率)</th>
+              <th class="p-3">制限時間</th>
+              <th class="p-3">時間の傾向</th>
+              <th class="p-3 text-amber-300">戦闘力 (DPS)</th>
+              <th class="p-3 text-amber-400">戦闘力上昇幅 (差分 / 倍率)</th>
+            </tr>
+          </thead>
+          <tbody id="monster-table-tbody" class="divide-y divide-slate-800/60 font-mono">
+            <!-- Dynamically rendered -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Grid / Cards View -->
+    <section id="view-container-cards" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Dynamically rendered -->
+    </section>
+
+  </main>
+
+  <!-- Detail Modal -->
+  <div id="detail-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 space-y-5 shadow-2xl relative overflow-hidden">
+      <div class="flex justify-between items-start border-b border-slate-800 pb-3">
+        <div class="flex items-center space-x-3">
+          <div id="modal-monster-icon" class="w-12 h-12 rounded-2xl bg-slate-950 border border-amber-500/50 flex items-center justify-center text-3xl shrink-0">
+            🟢
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span id="modal-monster-stage" class="text-xs font-mono font-bold px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/40">Stage 1</span>
+              <span id="modal-monster-type" class="text-[10px] font-bold text-slate-400">Main</span>
+            </div>
+            <h3 id="modal-monster-name" class="font-black text-lg text-white mt-0.5">スライムモドキ</h3>
+          </div>
+        </div>
+        <button onclick="hideDetailModal()" class="p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div id="modal-monster-details" class="space-y-3 text-xs">
+        <!-- Dynamically rendered details -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="hideDetailModal()" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs transition">
+          閉じる
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const dungeonMonsters = [
+      // Main (1 - 10)
+      { id: 1, name: "スライムモドキ", hp: 300, icon: "🟢", time: 45, type: "main", choices: 4 },
+      { id: 2, name: "ゴブリンファイター", hp: 600, icon: "👺", time: 45, type: "main", choices: 4 },
+      { id: 3, name: "オークソルジャー", hp: 1200, icon: "🐗", time: 45, type: "main", choices: 4 },
+      { id: 4, name: "ストーンゴーレム", hp: 2000, icon: "🗿", time: 45, type: "main", choices: 6 },
+      { id: 5, name: "シャドウナイト", hp: 3500, icon: "⚔️", time: 45, type: "main", choices: 6 },
+      { id: 6, name: "ヴァンパイアロード", hp: 5500, icon: "🧛", time: 45, type: "main", choices: 8 },
+      { id: 7, name: "ケルベロス", hp: 8000, icon: "🐺", time: 45, type: "main", choices: 8 },
+      { id: 8, name: "ベヒーモス", hp: 12000, icon: "🦣", time: 45, type: "main", choices: 8 },
+      { id: 9, name: "アシェンドラゴン", hp: 18000, icon: "🐉", time: 50, type: "main", choices: 8 },
+      { id: 10, name: "魔王ヴォルデモート", hp: 28000, icon: "👿", time: 60, type: "main", choices: 8 },
+
+      // Extra (11 - 20)
+      { id: 11, name: "紫炎のスライム", hp: 35000, icon: "🟣", time: 45, type: "extra", choices: 8 },
+      { id: 12, name: "闇のゴブリン王", hp: 45000, icon: "👹", time: 45, type: "extra", choices: 8 },
+      { id: 13, name: "呪いのガーゴイル", hp: 60000, icon: "🦇", time: 45, type: "extra", choices: 8 },
+      { id: 14, name: "死神アズラエル", hp: 80000, icon: "💀", time: 45, type: "extra", choices: 8 },
+      { id: 15, name: "インフェルノハウンド", hp: 110000, icon: "🐕‍🦺", time: 45, type: "extra", choices: 8 },
+      { id: 16, name: "深海の大蛇リヴァイアサン", hp: 150000, icon: "🐍", time: 50, type: "extra", choices: 8 },
+      { id: 17, name: "雷帝タイタン", hp: 200000, icon: "⚡", time: 50, type: "extra", choices: 8 },
+      { id: 18, name: "冥界の魔導師", hp: 280000, icon: "🧙‍♂️", time: 50, type: "extra", choices: 8 },
+      { id: 19, name: "暗黒竜バハムート", hp: 400000, icon: "🐲", time: 50, type: "extra", choices: 8 },
+      { id: 20, name: "創世と終焉の神ゼウス", hp: 600000, icon: "🔱", time: 60, type: "extra", choices: 8 },
+
+      // Extra 2 (21 - 30)
+      { id: 21, name: "次元の歪み・スライム", hp: 800000, icon: "🌀", time: 45, type: "extra2", choices: 8 },
+      { id: 22, name: "虚無の剣士", hp: 1000000, icon: "🗡️", time: 45, type: "extra2", choices: 8 },
+      { id: 23, name: "幻影の魔導書", hp: 1300000, icon: "📖", time: 45, type: "extra2", choices: 8 },
+      { id: 24, name: "カオス・フェニックス", hp: 1700000, icon: "🦅", time: 45, type: "extra2", choices: 8 },
+      { id: 25, name: "時空の支配者", hp: 2200000, icon: "⏳", time: 45, type: "extra2", choices: 8 },
+      { id: 26, name: "星喰いの魔獣", hp: 2800000, icon: "🌌", time: 50, type: "extra2", choices: 8 },
+      { id: 27, name: "狂気の機巧神", hp: 3500000, icon: "⚙️", time: 50, type: "extra2", choices: 8 },
+      { id: 28, name: "深淵の黒騎士", hp: 4500000, icon: "🛡️", time: 50, type: "extra2", choices: 8 },
+      { id: 29, name: "忘却の古竜", hp: 6000000, icon: "🐲", time: 50, type: "extra2", choices: 8 },
+      { id: 30, name: "混沌の皇王カオス", hp: 8000000, icon: "👑", time: 60, type: "extra2", choices: 8 },
+
+      // Hell (31 - 40)
+      { id: 31, name: "業火のスライム", hp: 10000000, icon: "🔥", time: 40, type: "hell", choices: 8 },
+      { id: 32, name: "煉獄の拷問官", hp: 13000000, icon: "⛓️", time: 40, type: "hell", choices: 8 },
+      { id: 33, name: "血塗られた巨神", hp: 17000000, icon: "👹", time: 40, type: "hell", choices: 8 },
+      { id: 34, name: "地獄の番犬ハデス", hp: 22000000, icon: "🐕", time: 40, type: "hell", choices: 8 },
+      { id: 35, name: "堕天使ルシファー", hp: 28000000, icon: "🪽", time: 45, type: "hell", choices: 8 },
+      { id: 36, name: "終焉の魔女ベラドンナ", hp: 35000000, icon: "🔮", time: 45, type: "hell", choices: 8 },
+      { id: 37, name: "虚空の処刑人", hp: 45000000, icon: "🪓", time: 45, type: "hell", choices: 8 },
+      { id: 38, name: "滅びの凶竜ルイン", hp: 60000000, icon: "🦖", time: 45, type: "hell", choices: 8 },
+      { id: 39, name: "地獄の創造主サタン", hp: 80000000, icon: "😈", time: 50, type: "hell", choices: 8 },
+      { id: 40, name: "絶対神ヘル・エンペラー", hp: 100000000, icon: "☠️", time: 60, type: "hell", choices: 8 },
+
+      // Void (41 - 50)
+      { id: 41, name: "無の境界・スライム", hp: 130000000, icon: "🫥", time: 35, type: "void", choices: 8 },
+      { id: 42, name: "存在せざる影", hp: 170000000, icon: "👤", time: 35, type: "void", choices: 8 },
+      { id: 43, name: "概念の破壊者", hp: 220000000, icon: "💥", time: 35, type: "void", choices: 8 },
+      { id: 44, name: "理を喰らうモノ", hp: 280000000, icon: "🕳️", time: 35, type: "void", choices: 8 },
+      { id: 45, name: "無幻の魔神", hp: 350000000, icon: "🔮", time: 35, type: "void", choices: 8 },
+      { id: 46, name: "無限のパラドックス", hp: 450000000, icon: "♾️", time: 35, type: "void", choices: 8 },
+      { id: 47, name: "全知全能の虚無", hp: 600000000, icon: "👁️", time: 350, type: "void", choices: 8 },
+      { id: 48, name: "原初にして最後の竜", hp: 800000000, icon: "🐲", time: 35, type: "void", choices: 8 },
+      { id: 49, name: "終極の意志・ヴォイド", hp: 1000000000, icon: "🌌", time: 35, type: "void", choices: 8 },
+      { id: 50, name: "世界線収束の神オメガ", hp: 1500000000, icon: "☸️", time: 35, type: "void", choices: 8 },
+
+      // World Begin (51 - 60)
+      { id: 51, name: "原初のスライム・極", hp: 5000000000, icon: "🌱", time: 40, type: "world_begin", choices: 8 },
+      { id: 52, name: "創造の芽吹き", hp: 12000000000, icon: "🌿", time: 40, type: "world_begin", choices: 8 },
+      { id: 53, name: "大地の精霊ファウナ", hp: 30000000000, icon: "🌸", time: 40, type: "world_begin", choices: 8 },
+      { id: 54, name: "黎明の守護獣", hp: 70000000000, icon: "🦄", time: 40, type: "world_begin", choices: 8 },
+      { id: 55, name: "生命の源流者", hp: 150000000000, icon: "💧", time: 40, type: "world_begin", choices: 8 },
+      { id: 56, name: "世界樹の巨神", hp: 350000000000, icon: "🌲", time: 40, type: "world_begin", choices: 8 },
+      { id: 57, name: "始祖のワイバーン", hp: 800000000000, icon: "🐉", time: 40, type: "world_begin", choices: 8 },
+      { id: 58, name: "天地創造の巨兵", hp: 1800000000000, icon: "🗿", time: 45, type: "world_begin", choices: 8 },
+      { id: 59, name: "万物の霊長", hp: 4000000000000, icon: "✨", time: 45, type: "world_begin", choices: 8 },
+      { id: 60, name: "はじまりの神ガイア", hp: 10000000000000, icon: "🌍", time: 50, type: "world_begin", choices: 8 },
+
+      // World Ancient (61 - 70)
+      { id: 61, name: "古代のスライム化石", hp: 25000000000000, icon: "🏺", time: 40, type: "world_ancient", choices: 8 },
+      { id: 62, name: "アンキロサウルス・ロード", hp: 60000000000000, icon: "🐊", time: 40, type: "world_ancient", choices: 8 },
+      { id: 63, name: "太古の呪術師", hp: 150000000000000, icon: "🗿", time: 40, type: "world_ancient", choices: 8 },
+      { id: 64, name: "ファラオの守護神", hp: 350000000000000, icon: "📿", time: 40, type: "world_ancient", choices: 8 },
+      { id: 65, name: "バビロンの空中巨獣", hp: 800000000000000, icon: "🏛️", time: 40, type: "world_ancient", choices: 8 },
+      { id: 66, name: "太古の赤竜ティラノ", hp: 2000000000000000, icon: "🦖", time: 40, type: "world_ancient", choices: 8 },
+      { id: 67, name: "失われた帝国の賢者", hp: 5000000000000000, icon: "📜", time: 45, type: "world_ancient", choices: 8 },
+      { id: 68, name: "アトランティスの守護巨神", hp: 12000000000000000, icon: "🔱", time: 45, type: "world_ancient", choices: 8 },
+      { id: 69, name: "古代超文明の兵器", hp: 30000000000000000, icon: "🔮", time: 45, type: "world_ancient", choices: 8 },
+      { id: 70, name: "古代皇帝クロノス", hp: 80000000000000000, icon: "👑", time: 50, type: "world_ancient", choices: 8 },
+
+      // World Sengoku (71 - 80)
+      { id: 71, name: "足軽スライム", hp: 200000000000000000, icon: "🏯", time: 35, type: "world_sengoku", choices: 8 },
+      { id: 72, name: "忍びの影鬼", hp: 500000000000000000, icon: "🥷", time: 35, type: "world_sengoku", choices: 8 },
+      { id: 73, name: "戦国武者ガラシャ", hp: 1200000000000000000, icon: "⚔️", time: 35, type: "world_sengoku", choices: 8 },
+      { id: 74, name: "妖刀村正の怨霊", hp: 3000000000000000000, icon: "🗡️", time: 35, type: "world_sengoku", choices: 8 },
+      { id: 75, name: "火縄銃将軍", hp: 7000000000000000000, icon: "💥", time: 35, type: "world_sengoku", choices: 8 },
+      { id: 76, name: "風林火山・信玄", hp: 18000000000000000000, icon: "🚩", time: 40, type: "world_sengoku", choices: 8 },
+      { id: 77, name: "越後の龍・謙信", hp: 45000000000000000000, icon: "🐉", time: 40, type: "world_sengoku", choices: 8 },
+      { id: 78, name: "九尾の狐・玉藻前", hp: 100000000000000000000, icon: "🦊", time: 40, type: "world_sengoku", choices: 8 },
+      { id: 79, name: "第六天魔王ノブナガ", hp: 250000000000000000000, icon: "👹", time: 45, type: "world_sengoku", choices: 8 },
+      { id: 80, name: "天下統一神覇王", hp: 600000000000000000000, icon: "🏯", time: 50, type: "world_sengoku", choices: 8 },
+
+      // World Machine (81 - 90)
+      { id: 81, name: "メカ・スライムMk-I", hp: 1500000000000000000000, icon: "🤖", time: 35, type: "world_machine", choices: 8 },
+      { id: 82, name: "サイバー・ドローン", hp: 4000000000000000000000, icon: "🛸", time: 35, type: "world_machine", choices: 8 },
+      { id: 83, name: "プラズマキャノン機甲士", hp: 10000000000000000000000, icon: "⚙️", time: 35, type: "world_machine", choices: 8 },
+      { id: 84, name: "ナノマシン集合体", hp: 25000000000000000000000, icon: "🧬", time: 35, type: "world_machine", choices: 8 },
+      { id: 85, name: "量産型アンドロイド・オメガ", hp: 60000000000000000000000, icon: "🦾", time: 35, type: "world_machine", choices: 8 },
+      { id: 86, name: "フォトン・要塞母艦", hp: 150000000000000000000000, icon: "🚀", time: 40, type: "world_machine", choices: 8 },
+      { id: 87, name: "超AIマザー・ブレイン", hp: 400000000000000000000000, icon: "🧠", time: 40, type: "world_machine", choices: 8 },
+      { id: 88, name: "次元跳躍型メカドラゴン", hp: 1000000000000000000000000, icon: "🐉", time: 40, type: "world_machine", choices: 8 },
+      { id: 89, name: "機械神ゼウス・メカニカル", hp: 2500000000000000000000000, icon: "⚡", time: 45, type: "world_machine", choices: 8 },
+      { id: 90, name: "機甲絶対神デウス・エクス・マキナ", hp: 7000000000000000000000000, icon: "🛰️", time: 50, type: "world_machine", choices: 8 },
+
+      // World Front Front (91 - 100)
+      { id: 91, name: "真・はじまりのスライム", hp: 20000000000000000000000000, icon: "✨", time: 30, type: "world_front_front", choices: 8 },
+      { id: 92, name: "真理の監視者", hp: 50000000000000000000000000, icon: "👁️", time: 30, type: "world_front_front", choices: 8 },
+      { id: 93, name: "絶対正義の聖騎士", hp: 120000000000000000000000000, icon: "🛡️", time: 30, type: "world_front_front", choices: 8 },
+      { id: 94, name: "光輝なる天使長ミカエル", hp: 300000000000000000000000000, icon: "👼", time: 30, type: "world_front_front", choices: 8 },
+      { id: 95, name: "表裏一体の創生神", hp: 800000000000000000000000000, icon: "☯️", time: 30, type: "world_front_front", choices: 8 },
+      { id: 96, name: "銀河統括意思", hp: 2000000000000000000000000000, icon: "🌌", time: 35, type: "world_front_front", choices: 8 },
+      { id: 97, name: "全知全能の光", hp: 5000000000000000000000000000, icon: "🌟", time: 35, type: "world_front_front", choices: 8 },
+      { id: 98, name: "因果律の支配神", hp: 12000000000000000000000000000, icon: "☸️", time: 35, type: "world_front_front", choices: 8 },
+      { id: 99, name: "表の表の創造主アルファ", hp: 30000000000000000000000000000, icon: "☀️", time: 40, type: "world_front_front", choices: 8 },
+      { id: 100, name: "全存在の根源神アルティメット", hp: 99000000000000000000000000000, icon: "👑", time: 60, type: "world_front_front", choices: 8 }
+    ];
+
+    const worldTypeMap = {
+      main: { name: "表ダンジョン", badgeClass: "bg-indigo-500/20 text-indigo-300 border-indigo-500/40" },
+      extra: { name: "裏ダンジョン", badgeClass: "bg-purple-500/20 text-purple-300 border-purple-500/40" },
+      extra2: { name: "裏の裏ダンジョン", badgeClass: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/40" },
+      hell: { name: "地獄ダンジョン", badgeClass: "bg-rose-500/20 text-rose-300 border-rose-500/40" },
+      void: { name: "無のダンジョン", badgeClass: "bg-slate-800 text-slate-300 border-slate-700" },
+      world_begin: { name: "はじまりの世界", badgeClass: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40" },
+      world_ancient: { name: "古代の世界", badgeClass: "bg-amber-500/20 text-amber-300 border-amber-500/40" },
+      world_sengoku: { name: "戦国の世界", badgeClass: "bg-rose-500/20 text-rose-300 border-rose-500/40" },
+      world_machine: { name: "機械の世界", badgeClass: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40" },
+      world_front_front: { name: "表の表の世界", badgeClass: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/40" }
+    };
+
+    let currentWorldFilter = 'all';
+    let currentViewMode = 'table';
+    let processedMonsters = [];
+
+    function formatJapaneseNumber(val) {
+      if (val === undefined || val === null) return '-';
+      let num = typeof val === 'number' ? val : Number(val);
+
+      if (isNaN(num)) {
+        return val.toString();
+      }
+
+      if (num < 10000) {
+        return num.toLocaleString();
+      }
+
+      const units = ["", "万", "億", "兆", "京", "垓", "𥝱", "穣", "溝", "澗", "正", "載", "極"];
+      
+      let unitIdx = 0;
+      let n = num;
+      while (n >= 10000 && unitIdx < units.length - 1) {
+        n /= 10000;
+        unitIdx++;
+      }
+
+      return n.toLocaleString(undefined, { maximumFractionDigits: 2 }) + " " + units[unitIdx];
+    }
+
+    function getTimeTrendTag(monster, prevMonster) {
+      let timeSec = monster.time;
+      let diff = prevMonster ? timeSec - prevMonster.time : 0;
+      let diffStr = diff > 0 ? `(+${diff}s)` : diff < 0 ? `(${diff}s)` : `(±0s)`;
+
+      if (monster.id === 47) {
+        return `<span class="px-2 py-0.5 bg-purple-500/20 text-purple-300 border border-purple-500/40 rounded text-[10px] font-bold">超緩和 350s</span>`;
+      }
+      if (monster.id % 10 === 0) {
+        return `<span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded text-[10px] font-bold">ボス特例 ${timeSec}s ${diffStr}</span>`;
+      }
+      if (timeSec <= 30) {
+        return `<span class="px-2 py-0.5 bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded text-[10px] font-bold">超高速 ${timeSec}s ${diffStr}</span>`;
+      }
+      if (timeSec <= 35) {
+        return `<span class="px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-500/30 rounded text-[10px] font-bold">高速 ${timeSec}s ${diffStr}</span>`;
+      }
+      if (timeSec === 45) {
+        return `<span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[10px]">標準 ${timeSec}s ${diffStr}</span>`;
+      }
+      return `<span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[10px]">${timeSec}s ${diffStr}</span>`;
+    }
+
+    function precalculateMonsterData() {
+      processedMonsters = dungeonMonsters.map((m, idx) => {
+        const prev = idx > 0 ? dungeonMonsters[idx - 1] : null;
+
+        // DPS
+        const dps = m.hp / m.time;
+        const prevDps = prev ? (prev.hp / prev.time) : 0;
+
+        // HP Diff & Ratio
+        const hpDiff = prev ? (m.hp - prev.hp) : 0;
+        const hpRatio = prev ? (m.hp / prev.hp) : 1;
+
+        // DPS Diff & Ratio
+        const dpsDiff = prev ? (dps - prevDps) : 0;
+        const dpsRatio = prev ? (dps / prevDps) : 1;
+
+        return {
+          ...m,
+          dps,
+          hpDiff,
+          hpRatio,
+          dpsDiff,
+          dpsRatio,
+          prevMonster: prev
+        };
+      });
+    }
+
+    function renderBossSummary() {
+      const tbody = document.getElementById("boss-summary-tbody");
+      if (!tbody) return;
+
+      const bossStages = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+      const stage1Dps = processedMonsters[0].dps;
+
+      tbody.innerHTML = "";
+
+      bossStages.forEach((stageNum, index) => {
+        const boss = processedMonsters.find(m => m.id === stageNum);
+        if (!boss) return;
+
+        const prevBoss = index > 0 ? processedMonsters.find(m => m.id === bossStages[index - 1]) : null;
+        const ratioVsPrevBoss = prevBoss ? (boss.dps / prevBoss.dps) : (boss.dps / stage1Dps);
+        const ratioVsStage1 = boss.dps / stage1Dps;
+
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-800/40 transition";
+        tr.innerHTML = `
+          <td class="p-2.5 font-bold text-amber-400">Stage ${boss.id}</td>
+          <td class="p-2.5 font-bold text-white flex items-center gap-1.5">
+            <span class="text-base">${boss.icon}</span> ${boss.name}
+          </td>
+          <td class="p-2.5 text-slate-400 text-[11px]">${worldTypeMap[boss.type]?.name || boss.type}</td>
+          <td class="p-2.5 text-rose-300 font-bold">${formatJapaneseNumber(boss.hp)}</td>
+          <td class="p-2.5 text-slate-300">${boss.time} 秒</td>
+          <td class="p-2.5 text-amber-300 font-bold">${formatJapaneseNumber(boss.dps)} /s</td>
+          <td class="p-2.5 text-emerald-400 font-bold">${ratioVsPrevBoss.toFixed(2)} 倍</td>
+          <td class="p-2.5 text-fuchsia-300 font-bold">${formatJapaneseNumber(ratioVsStage1)} 倍</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderTableView(monsters) {
+      const tbody = document.getElementById("monster-table-tbody");
+      if (!tbody) return;
+
+      tbody.innerHTML = "";
+
+      monsters.forEach(m => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-800/50 transition cursor-pointer";
+        tr.onclick = () => showDetailModal(m.id);
+
+        const wInfo = worldTypeMap[m.type] || { name: m.type, badgeClass: "bg-slate-800 text-slate-300" };
+
+        let hpDiffStr = m.prevMonster ? `+${formatJapaneseNumber(m.hpDiff)} (${m.hpRatio.toFixed(2)}倍)` : "-";
+        let dpsDiffStr = m.prevMonster ? `+${formatJapaneseNumber(m.dpsDiff)} (${m.dpsRatio.toFixed(2)}倍)` : "-";
+
+        tr.innerHTML = `
+          <td class="p-3 font-bold text-amber-400">Stage ${m.id}</td>
+          <td class="p-3 font-bold text-white flex items-center space-x-2">
+            <span class="text-xl">${m.icon}</span>
+            <span class="hover:underline">${m.name}</span>
+          </td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded text-[10px] border ${wInfo.badgeClass}">${wInfo.name}</span>
+          </td>
+          <td class="p-3 font-bold text-slate-100">${formatJapaneseNumber(m.hp)}</td>
+          <td class="p-3 text-rose-400 text-[11px]">${hpDiffStr}</td>
+          <td class="p-3 font-bold text-amber-300">${m.time}s</td>
+          <td class="p-3">${getTimeTrendTag(m, m.prevMonster)}</td>
+          <td class="p-3 font-bold text-amber-300">${formatJapaneseNumber(m.dps)} /s</td>
+          <td class="p-3 text-amber-400 text-[11px]">${dpsDiffStr}</td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderCardsView(monsters) {
+      const container = document.getElementById("view-container-cards");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      monsters.forEach(m => {
+        const card = document.createElement("div");
+        card.className = "bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-3xl p-5 space-y-3 shadow-xl transition cursor-pointer hover:scale-[1.01]";
+        card.onclick = () => showDetailModal(m.id);
+
+        const wInfo = worldTypeMap[m.type] || { name: m.type, badgeClass: "bg-slate-800 text-slate-300" };
+        let hpDiffStr = m.prevMonster ? `+${formatJapaneseNumber(m.hpDiff)} (${m.hpRatio.toFixed(2)}倍)` : "初回基準";
+        let dpsDiffStr = m.prevMonster ? `+${formatJapaneseNumber(m.dpsDiff)} (${m.dpsRatio.toFixed(2)}倍)` : "初回基準";
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start">
+            <div class="flex items-center space-x-2.5">
+              <span class="text-3xl">${m.icon}</span>
+              <div>
+                <span class="text-[10px] font-bold text-amber-400 font-mono">Stage ${m.id}</span>
+                <h4 class="font-bold text-sm text-white leading-tight">${m.name}</h4>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] border ${wInfo.badgeClass}">${wInfo.name}</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 bg-slate-950 p-3 rounded-2xl border border-slate-800/80 font-mono text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400 block">最大体力 (HP)</span>
+              <span class="font-bold text-rose-400">${formatJapaneseNumber(m.hp)}</span>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400 block">戦闘力 (DPS)</span>
+              <span class="font-bold text-amber-300">${formatJapaneseNumber(m.dps)}/s</span>
+            </div>
+          </div>
+
+          <div class="space-y-1 text-[11px] font-mono text-slate-400 pt-1 border-t border-slate-800">
+            <div class="flex justify-between">
+              <span>HP上昇幅:</span>
+              <span class="text-rose-400 font-bold">${hpDiffStr}</span>
+            </div>
+            <div class="flex justify-between">
+              <span>戦闘力上昇幅:</span>
+              <span class="text-amber-400 font-bold">${dpsDiffStr}</span>
+            </div>
+            <div class="flex justify-between items-center pt-1">
+              <span>制限時間傾向:</span>
+              ${getTimeTrendTag(m, m.prevMonster)}
+            </div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function renderMonsterList() {
+      const q = document.getElementById("search-input").value.toLowerCase().trim();
+
+      const filtered = processedMonsters.filter(m => {
+        const matchWorld = (currentWorldFilter === 'all' || m.type === currentWorldFilter);
+        const matchSearch = m.name.toLowerCase().includes(q) || m.id.toString() === q;
+        return matchWorld && matchSearch;
+      });
+
+      if (currentViewMode === 'table') {
+        renderTableView(filtered);
+      } else {
+        renderCardsView(filtered);
+      }
+    }
+
+    function setWorldFilter(worldType) {
+      currentWorldFilter = worldType;
+
+      const types = ['all', 'main', 'extra', 'extra2', 'hell', 'void', 'world_begin', 'world_ancient', 'world_sengoku', 'world_machine', 'world_front_front'];
+      types.forEach(t => {
+        const btn = document.getElementById(`filter-btn-${t}`);
+        if (btn) {
+          if (t === worldType) {
+            btn.className = "px-3 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold transition whitespace-nowrap";
+          } else {
+            btn.className = "px-3 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap";
+          }
+        }
+      });
+
+      renderMonsterList();
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+
+      const tblContainer = document.getElementById("view-container-table");
+      const cardContainer = document.getElementById("view-container-cards");
+      const btnTbl = document.getElementById("view-btn-table");
+      const btnCard = document.getElementById("view-btn-cards");
+
+      if (mode === 'table') {
+        tblContainer.classList.remove("hidden");
+        cardContainer.classList.add("hidden");
+        btnTbl.className = "px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs transition";
+        btnCard.className = "px-3 py-1.5 rounded-xl bg-transparent text-slate-400 hover:text-white font-bold text-xs transition";
+      } else {
+        tblContainer.classList.add("hidden");
+        cardContainer.classList.remove("hidden");
+        btnCard.className = "px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs transition";
+        btnTbl.className = "px-3 py-1.5 rounded-xl bg-transparent text-slate-400 hover:text-white font-bold text-xs transition";
+      }
+
+      renderMonsterList();
+    }
+
+    function showDetailModal(stageId) {
+      const m = processedMonsters.find(x => x.id === stageId);
+      if (!m) return;
+
+      const wInfo = worldTypeMap[m.type] || { name: m.type };
+
+      document.getElementById("modal-monster-icon").textContent = m.icon;
+      document.getElementById("modal-monster-stage").textContent = `Stage ${m.id}`;
+      document.getElementById("modal-monster-type").textContent = wInfo.name;
+      document.getElementById("modal-monster-name").textContent = m.name;
+
+      const detailBox = document.getElementById("modal-monster-details");
+      
+      let hpDiffText = m.prevMonster ? `+${formatJapaneseNumber(m.hpDiff)} (直前比 ${m.hpRatio.toFixed(2)} 倍)` : "初回基準";
+      let dpsDiffText = m.prevMonster ? `+${formatJapaneseNumber(m.dpsDiff)} (直前比 ${m.dpsRatio.toFixed(2)} 倍)` : "初回基準";
+
+      const stage1Dps = processedMonsters[0].dps;
+      const ratioVsStage1 = m.dps / stage1Dps;
+
+      detailBox.innerHTML = `
+        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 font-mono">
+          <div class="flex justify-between items-center"><span class="text-slate-400">最大体力 (HP):</span> <b class="text-rose-400 font-bold text-sm">${formatJapaneseNumber(m.hp)}</b></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">制限時間:</span> <b class="text-amber-300 font-bold">${m.time} 秒</b></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">戦闘力 (DPS):</span> <b class="text-amber-300 font-bold text-sm">${formatJapaneseNumber(m.dps)} /s</b></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">出題選択肢数:</span> <b class="text-slate-200">${m.choices} 択</b></div>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 font-mono text-xs">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5"><i class="fa-solid fa-chart-line"></i> 上昇幅・インフレ率分析</h4>
+          <div class="flex justify-between items-center"><span class="text-slate-400">体力 (HP) 上昇幅:</span> <b class="text-rose-400">${hpDiffText}</b></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">戦闘力 (DPS) 上昇幅:</span> <b class="text-amber-400">${dpsDiffText}</b></div>
+          <div class="flex justify-between items-center pt-1 border-t border-slate-800"><span class="text-slate-400">Stage 1 比倍率:</span> <b class="text-fuchsia-300 font-bold">${formatJapaneseNumber(ratioVsStage1)} 倍</b></div>
+        </div>
+
+        <div class="p-3 bg-slate-950 border border-slate-800 rounded-2xl flex items-center space-x-2 text-[11px] text-slate-300">
+          <i class="fa-solid fa-circle-info text-amber-400 text-sm shrink-0"></i>
+          <span>制限時間傾向: ${getTimeTrendTag(m, m.prevMonster)}</span>
+        </div>
+      `;
+
+      document.getElementById("detail-modal").classList.remove("hidden");
+    }
+
+    function hideDetailModal() {
+      document.getElementById("detail-modal").classList.add("hidden");
+    }
+
+    window.onload = function() {
+      precalculateMonsterData();
+      renderBossSummary();
+      renderMonsterList();
+    };
+  </script>
+</body>
+</html>
